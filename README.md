@@ -1,5 +1,5 @@
 # NYOXRA
-FOR NYOXRA HACKATHON PURPOSE
+
 LexFlow/
 ├── client/                 # React Frontend
 │   ├── src/
