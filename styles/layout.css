@@ -852,6 +852,7 @@ body {
     overflow: hidden;
     position: relative;
     border-radius: 1rem;
+    margin-top: 4rem;
 }
 
 /* 1. The Left Side (Video) */
@@ -903,6 +904,7 @@ body {
     /* Adds a subtle shadow for depth */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
+
 }
 
 #main_discription h2 {
@@ -937,4 +939,167 @@ body {
     .discription-section {
         text-align: center;
     }
+}
+
+/* =========================================
+   NP-FOOTER: The Main Container
+   ========================================= */
+.np-footer {
+    width: 100%;
+    margin-top: 4rem;
+    /* Adds space above the footer */
+    font-family: 'Open Sans', sans-serif;
+    /* Recommended for readability */
+}
+
+/* =========================================
+   1. PRIMARY (TOP) SECTION: Adapting Brown Area
+   ========================================= */
+.footer-primary-links {
+    background-color: #4B0082;
+    /* Our Deep Scrolled Violet */
+    padding: 3rem 8%;
+    color: #ffffff;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    /* Important for responsiveness */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    /* Prevents column squishing */
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+    /* Space for the dot */
+}
+
+/* Adding the dot/bullet from the image via CSS */
+.footer-col li::before {
+    content: "•";
+    color: rgba(255, 255, 255, 0.6);
+    /* Soft white dot */
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.footer-col a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.9;
+}
+
+.footer-col a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 4th Column (App Download) specific style */
+.footer-app-download .app-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Slight transparency */
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.footer-logo {
+    height: 40px;
+    /* Match the Supreme Court logo scale */
+}
+
+.download-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.app-stores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.5rem;
+}
+
+.app-stores img {
+    height: 35px;
+    /* Proportional app store icons */
+    transition: transform 0.2s ease;
+}
+
+.app-stores img:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   2. SECONDARY (BOTTOM) SECTION: Adapting Black Area
+   ========================================= */
+.footer-secondary-info {
+    background-color: #ffffff;
+    /* We use white instead of black */
+    color: #4B0082;
+    /* Violet text for contrast */
+    padding: 2rem 8%;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.policy-links {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.policy-links a {
+    color: #4B0082;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.copyright-text p {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    opacity: 0.8;
+}
+
+/* Partnership Logos section */
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.partner-logos img {
+    height: 30px;
+    /* Scaled down for the partner area */
+    opacity: 0.8;
+}
+
+.mherm-badge {
+    background-color: #57B9FF;
+    /* Brand Blue */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
 }
