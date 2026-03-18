@@ -1,12 +1,5 @@
 /* 2025 Modern CSS Variables and Resets */
-:root {
-    --primary-blue: #007bff;
-    --secondary-gray: #6c757d;
-    --background-white: #ffffff;
-    --text-dark: #212529;
-}
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
