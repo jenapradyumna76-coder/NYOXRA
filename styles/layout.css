@@ -1103,3 +1103,144 @@ body {
     font-weight: bold;
     font-size: 0.8rem;
 }
+/* ==========================================================================
+   LOGIN / PORTAL SELECTION STYLES
+   ========================================================================== */
+
+.portal-selection-container {
+    min-height: 75vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fdfdfd; /* Clean white background to contrast the footer */
+    padding: 3rem 5%;
+}
+
+.selection-box {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.selection-box h1 {
+    color: #4B0082; /* Your Deep Violet */
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.selection-box p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 3.5rem;
+}
+
+/* Flexbox for Portal Buttons */
+.portal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.portal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Icons styling (If you're using FontAwesome) */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #f0f0ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #4B0082;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* The Portal Buttons */
+.btn-portal {
+    width: 260px;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 15px rgba(146, 146, 232, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.judge-btn {
+    background-color: #4B0082; /* Violet */
+    color: white;
+}
+
+.lawyer-btn {
+    background-color: #57B9FF; /* Brand Blue */
+    color: white;
+}
+
+/* Interactive Hover Effects */
+.btn-portal:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(146, 146, 232, 0.4);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .portal-actions { gap: 2rem; }
+    .selection-box h1 { font-size: 2rem; }
+}
+/* --- Portal Section Colors --- */
+.portal-selection-container {
+    padding: 100px 8%; /* Extra top padding so it doesn't hide under Nav */
+    background: #f4f7f6;
+    min-height: 80vh;
+}
+
+.judge-btn { background: #2E3192; color: white; }
+.lawyer-btn { background: #57B9FF; color: white; }
+
+/* --- Footer Colors (The "Decision") --- */
+.np-footer {
+    background: #ffffff;
+}
+
+.footer-primary-links {
+    background-color: #1a1c4d; /* Darker Midnight Indigo */
+    color: #e0e0e0;
+    padding: 4rem 8%;
+}
+
+.footer-secondary-info {
+    background: #f8f9fa;
+    color: #1a1c4d;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer-col a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: #57B9FF;
+}
+
+.app-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}

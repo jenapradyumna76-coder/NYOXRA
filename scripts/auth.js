@@ -23,4 +23,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+/* ==========================================================================
+   PORTAL NAVIGATION LOGIC
+   ========================================================================== */
 
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Logic for "Login" button on the Home Page
+    const homeLoginBtn = document.querySelector('.login-btn');
+    if (homeLoginBtn) {
+        homeLoginBtn.addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+    }
+
+    // 2. Logic for Judge Portal
+    const judgeBtn = document.querySelector('.judge-btn');
+    if (judgeBtn) {
+        judgeBtn.addEventListener('click', () => {
+            console.log("Redirecting to Judge Dashboard...");
+            // Add your dashboard link here later: window.location.href = 'judge-dash.html';
+            alert("Entering Judge Portal...");
+        });
+    }
+
+    // 3. Logic for Lawyer Portal
+    const lawyerBtn = document.querySelector('.lawyer-btn');
+    if (lawyerBtn) {
+        lawyerBtn.addEventListener('click', () => {
+            console.log("Redirecting to Lawyer Dashboard...");
+            // Add your dashboard link here later: window.location.href = 'lawyer-dash.html';
+            alert("Entering Lawyer Portal...");
+        });
+    }
+});
