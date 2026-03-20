@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const role = registerForm.getAttribute('data-role') || 'lawyer';
-            const verificationPage = role === 'judge' ? '../scripts/judgeverification.html' : '../scripts/lawerverification.html';
+            const verificationPage = role === 'judge' ? 'judgeverification.html' : 'lawerverification.html';
             window.open(verificationPage, '_blank', 'width=700,height=760,noopener,noreferrer');
         });
     }
