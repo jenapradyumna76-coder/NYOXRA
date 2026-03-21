@@ -126,12 +126,24 @@ body {
     box-shadow: 0 10px 20px rgba(21, 122, 216, 0.28);
 }
 
+.verify-license-btn {
+    background: #ffffff !important;
+    color: #1a4a82 !important;
+    border: 1px solid rgba(34, 104, 179, 0.4) !important;
+    box-shadow: none !important;
+}
+
+.verify-license-btn:hover {
+    background: #f2f8ff !important;
+    border-color: rgba(34, 104, 179, 0.7) !important;
+}
+
 .new-signin-btn {
     margin-top: 0.6rem;
     height: 2.8rem;
     border-radius: 12px;
     border: 1px dashed rgba(39, 113, 193, 0.6);
-    background: #f4f9ff;
+    background: #ffffff;
     color: #1d4b83;
     font-size: 0.95rem;
     font-weight: 600;
@@ -140,7 +152,7 @@ body {
 }
 
 .new-signin-btn:hover {
-    background: #e8f3ff;
+    background: #f5f8ff;
 }
 
 .flow-actions {
@@ -177,100 +189,133 @@ body {
 
 .np-footer {
     width: 100%;
+    background: #ffffff;
+    margin-top: 4rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .footer-primary-links {
     background-color: #1a1c4d;
-    color: #ffffff;
-    padding: 2.2rem 1rem;
+    color: #e0e0e0;
+    padding: 4rem 8%;
 }
 
 .footer-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
 }
 
 .footer-col ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-col li {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.footer-col li::before {
+    content: "•";
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
 }
 
 .footer-col a {
-    color: rgba(255, 255, 255, 0.78);
+    color: #b0b0b0;
     text-decoration: none;
-    font-size: 0.92rem;
+    transition: 0.3s;
 }
 
 .footer-col a:hover {
-    color: #ffffff;
+    color: #57B9FF;
 }
 
 .app-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 0.9rem;
+    padding: 20px;
+    text-align: center;
 }
 
-.app-card p,
-.app-card .tagline,
-.download-text {
-    color: #ffffff;
+.footer-logo {
+    height: 40px;
 }
 
 .app-stores {
     display: flex;
-    gap: 0.6rem;
-    margin-top: 0.55rem;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.5rem;
 }
 
 .app-stores img {
-    max-width: 130px;
-    height: auto;
+    height: 35px;
+    transition: transform 0.2s ease;
+}
+
+.app-stores img:hover {
+    transform: translateY(-3px);
 }
 
 .footer-secondary-info {
-    background: #05070d;
-    color: #ffffff;
+    background: #f8f9fa;
+    color: #1a1c4d;
     text-align: center;
-    padding: 1rem 0.8rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid #ddd;
+}
+
+.policy-links {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 .policy-links a {
-    color: #ffffff;
+    color: #4B0082;
     text-decoration: none;
+    margin: 0 10px;
 }
 
-.copyright-text {
-    margin-top: 0.7rem;
-    font-size: 0.86rem;
-    line-height: 1.5;
+.copyright-text p {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    opacity: 0.8;
 }
 
 .partner-logos {
-    margin-top: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.65rem;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .partner-logos img {
-    max-height: 24px;
-    width: auto;
+    height: 30px;
+    opacity: 0.8;
 }
 
 .mherm-badge {
-    font-size: 0.78rem;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 999px;
-    padding: 0.2rem 0.55rem;
+    background-color: #57B9FF;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
 }
 
 @media (min-width: 760px) {
@@ -302,12 +347,4 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .footer-primary-links {
-        padding: 2.6rem 1.5rem;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.2rem;
-    }
 }
