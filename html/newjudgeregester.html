@@ -43,12 +43,14 @@
                     <label class="auth-label" for="judge-license-no">Enter Your Licence No</label>
                     <input class="auth-input" id="judge-license-no" name="licenseNo" type="text" required>
 
-                    <button id="verifyBtn" class="auth-submit judge-theme verify-license-btn" type="submit">Verify Your Licence To
+                    <button id="verifyBtn" class="auth-submit judge-theme verify-license-btn" type="submit">Verify Your
+                        Licence To
                         Continue</button>
 
                     <div class="flow-actions">
                         <button id="backHome" class="secondary-btn back-home-btn" type="button">Back To Home</button>
-                        <button id="backPrev" class="secondary-btn back-previous-btn" type="button">Back To Previous</button>
+                        <button id="backPrev" class="secondary-btn back-previous-btn" type="button">Back To
+                            Previous</button>
                     </div>
                 </form>
             </div>
@@ -98,20 +100,21 @@
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNob3RnaXF1bmdvZnVvcXV3cHp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMzQ3ODcsImV4cCI6MjA4OTYxMDc4N30.iN89Qk8pCF3TxokVQxCPhvbANQQpCTKCAYV5MM8p--M';
 
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
     const registrationForm = document.getElementById('registrationForm');
+    const verifyBtn = document.getElementById('verifyBtn');
 
     registrationForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        const fullName = document.getElementById('judge-full-name').value;
         const email = document.getElementById('judge-email').value;
         const password = document.getElementById('judge-password').value;
-        const fullName = document.getElementById('judge-full-name').value;
         const licenseNo = document.getElementById('judge-license-no').value;
 
+        verifyBtn.innerText = 'Creating Account...';
+        verifyBtn.disabled = true;
+
         try {
-            // STEP 1: PURE AUTH SIGNUP
-            // We store the extra fields inside 'options.data'
             const { data, error } = await supabaseClient.auth.signUp({
                 email: email,
                 password: password,
@@ -127,16 +130,35 @@
             if (error) throw error;
 
             if (data.user) {
-                alert("Auth Success! Account created in Supabase Users.");
-                window.location.href = "verification-upload.html";
+                alert('Account created in Auth System! Proceeding to upload.');
+                window.location.href = 'judgeverification.html';
             }
-
         } catch (err) {
-            // If you still see 'Database error', it means a background TRIGGER is failing.
-            alert("Error: " + err.message);
+            alert('Auth Error: ' + err.message);
             console.error(err);
+        } finally {
+            verifyBtn.innerText = 'Verify Your Licence To Continue';
+            verifyBtn.disabled = false;
         }
     });
+
+    const backHomeBtn = document.getElementById('backHome');
+    if (backHomeBtn) {
+        backHomeBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
+
+    const backPrevBtn = document.getElementById('backPrev');
+    if (backPrevBtn) {
+        backPrevBtn.addEventListener('click', () => {
+            if (window.history.length > 1) {
+                window.history.back();
+                return;
+            }
+            window.location.href = 'judgelogin.html';
+        });
+    }
 </script>
 </body>
 
