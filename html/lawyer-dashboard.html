@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYAY PRAVAH | Lawyer Portal</title>
     <link rel="stylesheet" href="../styles/lawyer-style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -44,7 +45,22 @@
             <p>Manage evidence audits and adjournment quotas here.</p>
         </section>
 
-        <div id="lawyer-grid" class="case-grid">
+        <div class="split-grid">
+            <div class="pane backlog-pane">
+                <div class="pane-title">
+                    <i class="fas fa-exclamation-triangle"></i> Priority Cases
+                </div>
+                <div id="backlog-list" class="case-list">
+                </div>
+            </div>
+
+            <div class="pane fresh-pane">
+                <div class="pane-title">
+                    <i class="fas fa-leaf"></i> Recent Filings
+                </div>
+                <div id="fresh-list" class="case-list">
+                </div>
+            </div>
         </div>
     </main>
 
@@ -70,8 +86,8 @@
                     <ul>
                         <li><a href="footer/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy
                                 Policy</a></li>
-                        <li><a href="footer/data-handling-protocol.html" target="_blank"
-                                rel="noopener noreferrer">Data Handling Protocol</a></li>
+                        <li><a href="footer/data-handling-protocol.html" target="_blank" rel="noopener noreferrer">Data
+                                Handling Protocol</a></li>
                         <li><a href="footer/feedback-portal.html" target="_blank" rel="noopener noreferrer">Feedback
                                 Portal</a></li>
                         <li><a href="footer/accessibility.html" target="_blank"
@@ -85,8 +101,8 @@
                                 Nav Pravah</a></li>
                         <li><a href="footer/team-code-dazzlers.html" target="_blank" rel="noopener noreferrer">The
                                 Team (Code Dazzlers)</a></li>
-                        <li><a href="footer/technology-stack.html" target="_blank"
-                                rel="noopener noreferrer">Technology Stack</a></li>
+                        <li><a href="footer/technology-stack.html" target="_blank" rel="noopener noreferrer">Technology
+                                Stack</a></li>
                         <li><a href="footer/mherm-hackathon-26.html" target="_blank" rel="noopener noreferrer">MHERM
                                 Hackathon '26</a></li>
                     </ul>
@@ -138,7 +154,7 @@
             </form>
         </div>
     </div>
-    <script src="lawyer-dashboard.js"></script>
+    <script src="../scripts/dashboard.js"></script>
     <script>
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
