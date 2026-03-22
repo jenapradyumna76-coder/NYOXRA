@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -131,11 +131,27 @@
         </footer>
     </main>
     <script>
-        const SUPABASE_URL = 'https://tqocdhcbethbjkqeyfjj.supabase.co';
-        const SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxb2NkaGNiZXRoYmprcWV5ZmpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxNTQ3ODMsImV4cCI6MjA4OTczMDc4M30.DcpW9b2oLgthdCDN1idQiIw8tyg3JViBNxYb9iw_BVg;
+        const SUPABASE_URL = 'https://hwvflwartrxmazzjypbp.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_aHsV710290uB_VKb-mcSvg_b0IO3aEO';
+
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         const registrationForm = document.getElementById('registrationForm');
         const verifyBtn = document.getElementById('verifyBtn');
+
+        function redirectToVerifyJudge() {
+            const primaryUrl = new URL('./verifyjudge.html', window.location.href).toString();
+            const fallbackUrl = new URL('/backend/verifyjudge.html', window.location.origin).toString();
+
+            window.location.assign(primaryUrl);
+
+            // Fallback for hosts with unusual base-path routing.
+            setTimeout(() => {
+                const currentPath = window.location.pathname.toLowerCase();
+                if (!currentPath.includes('verifyjudge.html')) {
+                    window.location.assign(fallbackUrl);
+                }
+            }, 700);
+        }
 
         registrationForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -143,7 +159,13 @@
             const fullName = document.getElementById('judge-full-name').value;
             const email = document.getElementById('judge-email').value;
             const password = document.getElementById('judge-password').value;
+            const confirmPassword = document.getElementById('judge-confirm-password').value;
             const licenseNo = document.getElementById('judge-license-no').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
 
             verifyBtn.innerText = 'Creating Account...';
             verifyBtn.disabled = true;
@@ -164,8 +186,28 @@
                 if (error) throw error;
 
                 if (data.user) {
-                    alert('Account created in Auth System! Proceeding to upload.');
-                    window.location.href = 'judgeverification.html';
+                    const { error: profileError } = await supabaseClient
+                        .from('judge_profiles')
+                        .upsert({
+                            id: data.user.id,
+                            email: email,
+                            full_name: fullName,
+                            license_no: licenseNo,
+                            role: 'judge'
+                        }, { onConflict: 'id' });
+
+                    if (profileError) {
+                        throw new Error(
+                            `Account created in auth, but profile save failed: ${profileError.message}. ` +
+                            'Check table name (judge_profiles) and RLS policies.'
+                        );
+                    }
+
+                    alert('Account and profile saved successfully! Proceeding to verification.');
+                    redirectToVerifyJudge();
+                    return;
+                } else {
+                    throw new Error('Signup did not return a user. Check Supabase Auth settings.');
                 }
             } catch (err) {
                 alert('Auth Error: ' + err.message);
